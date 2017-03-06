@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:Nakupak" 
+	x:Class="Nakupak.NakupakPage">
+	<ContentPage.Content>
+		<Grid >
+			<Grid.ColumnDefinitions >
+				<ColumnDefinition Width="*"/>
+	    	</Grid.ColumnDefinitions>
+				
+	    	<Grid.RowDefinitions>
+				<RowDefinition Height="110"/>
+				<RowDefinition Height="*"/>
+	    	</Grid.RowDefinitions>
+
+			<Grid Grid.Row="0" Grid.Column="0">
+				<Grid.ColumnDefinitions >
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+		    	</Grid.ColumnDefinitions>
+					
+		    	<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+		    	</Grid.RowDefinitions>
+
+				<Label Text="Kontaky" Grid.Row="0" Grid.Column="0" FontSize="39" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" x:Name="text" Margin="10"/>
+				<Button Clicked="pridat" Text="Přidat +" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+			</Grid>
+
+			
+			<ListView x:Name="PeopleListViewFormatted" Grid.Row="0" Grid.Column="1" ItemTapped="SelectedItemMethod" IsGroupingEnabled="false">
+			    <ListView.ItemTemplate>
+					<DataTemplate>
+					    <ViewCell>
+						    <Grid HeightRequest="100">
+							    <Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*"/>
+							    </Grid.RowDefinitions>
+							    <Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="5*"/>
+							    </Grid.ColumnDefinitions>
+									<Label Text="{Binding GetName}" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="End" />
+									<Label Text="{Binding Age}" Grid.Row="1"  Grid.Column="1" FontSize="11" VerticalTextAlignment="Start"  />
+	<!--							<abstractions:CircleImage  Source="{Binding ProfilePhoto}" WidthRequest="95" HeightRequest="95" HorizontalOptions="Center" Aspect="AspectFill" Grid.Column="0" Grid.RowSpan="2"/>-->
+									<Image Source="images.png" Grid.Row="0"  Grid.Column="0" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Margin="10"/>		
+							</Grid>					 
+					    </ViewCell>
+					</DataTemplate>
+			    </ListView.ItemTemplate>
+ 			</ListView>
+			
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
