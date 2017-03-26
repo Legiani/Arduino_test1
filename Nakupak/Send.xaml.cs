@@ -21,6 +21,8 @@ namespace Nakupak
 			var smsMessenger = MessagingPlugin.SmsMessenger;
 			if (smsMessenger.CanSendSms)
 				smsMessenger.SendSms("+420"+phone.Text, content.Text);
+
+			Navigation.PopAsync();
 		}
 	}
 }
