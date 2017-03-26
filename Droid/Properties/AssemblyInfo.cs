@@ -6,6 +6,7 @@ using Android.App;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle("Nakupak.Droid")]
+[assembly: Application(Icon = "@drawable/icon")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]

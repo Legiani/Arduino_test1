@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Nakupak.NewItem"
+	NavigationPage.HasNavigationBar="true"
+	>
+	<ContentPage.Content>
+		<Grid Margin="0, 15, 0, 0">
+				<Grid.ColumnDefinitions >
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="1.3*"/>
+		    	</Grid.ColumnDefinitions>
+					
+		    	<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+		    	</Grid.RowDefinitions>
+
+				<Label Text="Přidat zboží" Grid.Row="0" Grid.Column="0" FontSize="39" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+				<Button Clicked="ulozit" Text="Uložit" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+				<Label Text="Název:" Grid.Row="1" Grid.Column="0" Margin="10" VerticalTextAlignment="Center" />
+				<Entry Placeholder="Pomelo" Grid.Row="1" Grid.Column="1" x:Name="nazev" Margin="0, 10, 0, 10" />
+
+				<Label Text="Cena:" Grid.Row="2" Grid.Column="0" Margin="10" VerticalTextAlignment="Center" />
+				<Label Text="Kč" Grid.Row="2" Grid.Column="1" Margin="0, 10, 15, 10" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+				<Entry Keyboard="Numeric" Placeholder="20" Grid.Row="2" Grid.Column="1" x:Name="cena" HorizontalTextAlignment="Start" Margin="0, 10, 45, 10"/>
+
+				<Label Text="Množství:" Grid.Row="3" Grid.Column="0" Margin="10" VerticalTextAlignment="Center" />
+				<Label Text="ks" Grid.Row="3" Grid.Column="1" Margin="0, 10, 15, 10" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+				<Entry Keyboard="Numeric" Placeholder="20" Grid.Row="3" Grid.Column="1" x:Name="mnozstvi" HorizontalTextAlignment="Start" Margin="0, 10, 45, 10"/>
+
+
+
+		</Grid>
+
+		
+	</ContentPage.Content>
+</ContentPage>

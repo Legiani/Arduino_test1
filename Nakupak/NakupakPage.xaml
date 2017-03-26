@@ -17,40 +17,51 @@
 			<Grid Grid.Row="0" Grid.Column="0">
 				<Grid.ColumnDefinitions >
 					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="0.7*"/>
 		    	</Grid.ColumnDefinitions>
 					
 		    	<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
 		    	</Grid.RowDefinitions>
 
-				<Label Text="Kontaky" Grid.Row="0" Grid.Column="0" FontSize="39" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" x:Name="text" Margin="10"/>
-				<Button Clicked="pridat" Text="Přidat +" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+				<Label Text="Nakupak" Grid.Row="0" Grid.Column="0" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" x:Name="text" Margin="10"/>
+				<Button Clicked="pridat" Text="Přidat +" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="End" />
+				<Button Clicked="sdilet" Text="Sdílet" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" />
 			</Grid>
 
-			
-			<ListView x:Name="PeopleListViewFormatted" Grid.Row="0" Grid.Column="1" ItemTapped="SelectedItemMethod" IsGroupingEnabled="false">
+			<ListView x:Name="ListViewFormatted" Grid.Row="1" Grid.Column="0" ItemTapped="SelectedItemMethod" IsGroupingEnabled="false">
 			    <ListView.ItemTemplate>
 					<DataTemplate>
 					    <ViewCell>
+							<ViewCell.ContextActions>
+					            <MenuItem Clicked="OnEdit" CommandParameter="{Binding ID}"
+					               Text="Upravit" />
+					            <MenuItem Clicked="OnDelete" CommandParameter="{Binding ID}"
+					               Text="Smazat" IsDestructive="True" />
+					        </ViewCell.ContextActions>
+							
 						    <Grid HeightRequest="100">
 							    <Grid.RowDefinitions>
 									<RowDefinition Height="*" />
-									<RowDefinition Height="*"/>
 							    </Grid.RowDefinitions>
 							    <Grid.ColumnDefinitions>
 									<ColumnDefinition Width="*"/>
-									<ColumnDefinition Width="5*"/>
+									<ColumnDefinition Width="2*"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="*"/>
 							    </Grid.ColumnDefinitions>
-									<Label Text="{Binding GetName}" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="End" />
-									<Label Text="{Binding Age}" Grid.Row="1"  Grid.Column="1" FontSize="11" VerticalTextAlignment="Start"  />
-	<!--							<abstractions:CircleImage  Source="{Binding ProfilePhoto}" WidthRequest="95" HeightRequest="95" HorizontalOptions="Center" Aspect="AspectFill" Grid.Column="0" Grid.RowSpan="2"/>-->
-									<Image Source="images.png" Grid.Row="0"  Grid.Column="0" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Margin="10"/>		
+									<Image Source="item.png" Grid.Row="0"  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="10"/>		
+									<Label Text="{Binding Name}" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="Center"/>
+									<Label Text="{Binding Price}" Grid.Row="0"  Grid.Column="2" FontSize="11" VerticalTextAlignment="Center"  HorizontalOptions="End"/>
+									<Label Text="Kč" Grid.Row="0"  Grid.Column="3" FontSize="11" VerticalTextAlignment="Center"  HorizontalOptions="Start"/>
+									<Label Text="{Binding Quantity}" Grid.Row="0"  Grid.Column="4" FontSize="12" VerticalTextAlignment="Center"  HorizontalOptions="End" Margin="0,0,10,0"/>
+<!--									<Switch IsToggled="{Binding Path=Monitored, Mode=TwoWay}" Grid.Row="0"  Grid.Column="4" HorizontalOptions="End" VerticalOptions="Center" x:Name="{Binding ID}"/>-->
 							</Grid>					 
 					    </ViewCell>
 					</DataTemplate>
 			    </ListView.ItemTemplate>
  			</ListView>
+
 			
 		</Grid>
 	</ContentPage.Content>
